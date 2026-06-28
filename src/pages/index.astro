@@ -36,7 +36,11 @@ const latestPosts = allPosts
         <div class="trust-pills">
           <span>🟢 Online</span>
           <span>✅ Fără diete stricte</span>
-          <a href="https://eatntrack.ro/coaches/radu-p" target="_blank" rel="noopener noreferrer">🥗 EatNtrack</a>
+          <span>💡 Claritate</span>
+          <span>📍 Pași concreți</span>
+          <span>📚 Educație nutrițională</span>
+          <span>🎯 Rezultate sustenabile</span>
+          <span>📊 Monitorizare</span>
         </div>
       </div>
 
@@ -78,32 +82,51 @@ const latestPosts = allPosts
   <!-- ═══ HOW I CAN HELP ═══ -->
   <section class="section-pad container">
     <div class="section-header centered">
-      <p class="section-eyebrow">Servicii</p>
-      <h2 class="section-title">Cum te pot ajuta</h2>
-      <p class="section-sub">Nu există o rețetă universală. Lucrez diferit cu fiecare persoană.</p>
+      <p class="section-eyebrow">Cum lucrăm</p>
+      <h2 class="section-title">Proces clar, rezultate reale</h2>
+      <p class="section-sub">Nu există o rețetă universală. Fiecare etapă e adaptată la tine.</p>
     </div>
-    <div class="benefits-grid">
-      <div class="bcard">
-        <div class="bcard-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div class="steps-grid">
+
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Analiză împreună</h3>
+          <p>Evaluăm aportul caloric, macronutrienții și pattern-urile zilnice — ca să avem <strong>claritate reală</strong> de unde pornim. După, adresăm și micronutrienții și fibrele.</p>
+          <div class="step-tags">
+            <span>Claritate</span>
+            <span>Macronutrienți</span>
+            <span>Obiceiuri zilnice</span>
+          </div>
         </div>
-        <h3>Fără diete stricte</h3>
-        <p>Adaptăm alimentația la viața ta reală — fără interdicții extreme.</p>
       </div>
-      <div class="bcard">
-        <div class="bcard-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Ajustări &amp; educație</h3>
+          <p>Optimizăm cantități, combinații și obiceiuri — fără restricții extreme. Înveți "de ce"-ul din spatele alegerilor, ca să poți replica singur pe termen lung.</p>
+          <div class="step-tags">
+            <span>Pași concreți</span>
+            <span>Educație</span>
+            <span>Fără interdicții</span>
+          </div>
         </div>
-        <h3>Educație nutrițională</h3>
-        <p>Înțelegi ce mănânci și de ce — iei decizii informate, nu urmezi reguli oarbe.</p>
       </div>
-      <div class="bcard">
-        <div class="bcard-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Monitorizare &amp; raport</h3>
+          <p>Urmărim progresul constant și ajustăm în funcție de rezultate reale — nu de cifre pe cântar, ci de cum te simți și funcționezi.</p>
+          <div class="step-tags">
+            <span>Monitorizare</span>
+            <span>Rezultate sustenabile</span>
+            <span>Ajustări continue</span>
+          </div>
         </div>
-        <h3>Progres sustenabil</h3>
-        <p>Slăbit sănătos și obiceiuri care durează — nu efectul yo-yo, ci schimbări reale pe termen lung.</p>
       </div>
+
     </div>
   </section>
 
@@ -435,46 +458,67 @@ const latestPosts = allPosts
   .see-all:hover { text-decoration: underline; }
 
   /* ─── BENEFITS ─── */
-  .benefits-grid {
+  /* ─── STEPS ─── */
+  .steps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
   }
-  .bcard {
+  .step-card {
+    display: flex;
+    gap: 1.25rem;
     background: var(--surface);
     border-radius: var(--r-md);
-    padding: 2rem 1.75rem;
-    box-shadow: var(--shadow-sm);
+    padding: 1.75rem;
     border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .bcard:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+  .step-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-100);
   }
-  .bcard-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: var(--accent-50);
-    border: 1px solid var(--accent-100);
+  .step-num {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.25rem;
-    color: var(--accent);
+    margin-top: 0.1rem;
   }
-  .bcard h3 {
+  .step-body h3 {
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--text);
     margin-bottom: 0.5rem;
     letter-spacing: -0.01em;
   }
-  .bcard p {
+  .step-body p {
     color: var(--text-muted);
-    font-size: 0.93rem;
+    font-size: 0.9rem;
     line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+  .step-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .step-tags span {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-50);
+    border: 1px solid var(--accent-100);
+    padding: 0.2rem 0.55rem;
+    border-radius: 99px;
   }
 
   /* ─── APPROACH STRIP ─── */
