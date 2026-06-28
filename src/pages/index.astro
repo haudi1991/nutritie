@@ -774,20 +774,3 @@ const latestPosts = allPosts
   }
 </style>
 
-<script is:inline>.forEach(el => {
-    el.addEventListener('click', async (e) => {
-      e.preventDefault();
-      const text = el.dataset.tooltip;
-      try {
-        await navigator.clipboard.writeText(text);
-        const orig = el.dataset.tooltip;
-        el.dataset.tooltip = 'Copiat ✓';
-        el.classList.add('copied');
-        setTimeout(() => {
-          el.dataset.tooltip = orig;
-          el.classList.remove('copied');
-        }, 1800);
-      } catch {}
-    });
-  });
-</script>
