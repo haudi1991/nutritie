@@ -62,14 +62,15 @@ const { title, description = 'Tehnician nutritionist pasionat de nutriția echil
 
     <style>
       :global(:root) {
-        --green-900: #052e16;
-        --green-800: #0b3d2e;
-        --green-700: #0f5c37;
-        --green-600: #16803d;
-        --green-500: #22c55e;
-        --green-100: #dcfce7;
-        --green-50: #f0fdf4;
-        --bg: #f6faf7;
+        --ink-950: #0d1117;
+        --ink-800: #1e2d3d;
+        --ink-700: #243447;
+        --teal-600: #0d9488;
+        --teal-500: #14b8a6;
+        --teal-200: #99f6e4;
+        --teal-100: #ccfbf1;
+        --teal-50:  #f0fdfa;
+        --bg: #f8f7f4;
         --surface: #ffffff;
         --text: #111827;
         --text-muted: #6b7280;
@@ -101,8 +102,8 @@ const { title, description = 'Tehnician nutritionist pasionat de nutriția echil
         position: sticky;
         top: 0;
         z-index: 100;
-        background: var(--green-800);
-        box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+        background: var(--ink-950);
+        box-shadow: 0 1px 0 rgba(255,255,255,.06);
       }
       .nav-inner {
         max-width: 900px;
@@ -146,14 +147,14 @@ const { title, description = 'Tehnician nutritionist pasionat de nutriția echil
         background: rgba(255,255,255,0.1);
       }
       .nav-cta {
-        background: var(--green-500) !important;
+        background: var(--teal-500) !important;
         color: #fff !important;
         font-weight: 600 !important;
         padding: 0.45rem 1rem !important;
         border-radius: 8px !important;
       }
       .nav-cta:hover {
-        background: #16a34a !important;
+        background: var(--teal-600) !important;
         color: #fff !important;
       }
       main {
@@ -165,7 +166,7 @@ const { title, description = 'Tehnician nutritionist pasionat de nutriția echil
         padding: 2.5rem 1.5rem;
       }
       .site-footer {
-        background: var(--green-900);
+        background: var(--ink-950);
         color: rgba(255,255,255,0.7);
         padding: 2.5rem 1.5rem;
         margin-top: 4rem;

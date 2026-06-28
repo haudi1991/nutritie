@@ -74,7 +74,7 @@ const latestPosts = allPosts
     </div>
     <div class="hero-wave" aria-hidden="true">
       <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0,35 C480,70 960,0 1440,35 L1440,70 L0,70 Z" fill="#f6faf7"/>
+        <path d="M0,35 C480,70 960,0 1440,35 L1440,70 L0,70 Z" fill="#f8f7f4"/>
       </svg>
     </div>
   </section>
@@ -198,15 +198,15 @@ const latestPosts = allPosts
 <style>
   /* ─── TOKENS ─── */
   :root {
-    --g900: #052e16;
-    --g800: #0b3d2e;
-    --g700: #166534;
-    --g500: #22c55e;
-    --g100: #dcfce7;
-    --g50:  #f0fdf4;
+    --g900: #0d1117;
+    --g800: #1e2d3d;
+    --g700: #0d9488;
+    --g500: #14b8a6;
+    --g100: #ccfbf1;
+    --g50:  #f0fdfa;
     --text: #111827;
     --muted: #6b7280;
-    --bg: #f6faf7;
+    --bg: #f8f7f4;
     --white: #ffffff;
     --radius-sm: 8px;
     --radius-md: 14px;
@@ -218,7 +218,7 @@ const latestPosts = allPosts
 
   /* ─── HERO ─── */
   .hero {
-    background: linear-gradient(140deg, var(--g900) 0%, var(--g800) 55%, var(--g700) 100%);
+    background: linear-gradient(140deg, #0d1117 0%, #1a2332 55%, #1e2d3d 100%);
     position: relative;
     overflow: hidden;
     padding-top: 1rem;
@@ -234,12 +234,12 @@ const latestPosts = allPosts
   .hero::before {
     width: 500px; height: 500px;
     top: -140px; right: -120px;
-    background: radial-gradient(circle, rgba(34,197,94,.18) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(20,184,166,.18) 0%, transparent 65%);
   }
   .hero::after {
     width: 300px; height: 300px;
     bottom: 60px; left: -80px;
-    background: radial-gradient(circle, rgba(125,211,252,.10) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(99,102,241,.10) 0%, transparent 65%);
   }
 
   .hero-grid {
@@ -268,7 +268,7 @@ const latestPosts = allPosts
     font-weight: 700;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: #86efac;
+    color: #5eead4;
     margin-bottom: 1.1rem;
   }
   .hero-text h1 {
@@ -281,7 +281,7 @@ const latestPosts = allPosts
   }
   .hero-text h1 em {
     font-style: normal;
-    background: linear-gradient(90deg, #86efac, #4ade80);
+    background: linear-gradient(90deg, #5eead4, #2dd4bf);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -472,7 +472,7 @@ const latestPosts = allPosts
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    color: #86efac;
+    color: #5eead4;
     font-weight: 600;
     font-size: 0.9rem;
     text-decoration: none;
@@ -506,7 +506,7 @@ const latestPosts = allPosts
     color: var(--g700);
     margin-bottom: 0.5rem;
   }
-  .section-eyebrow.light { color: #86efac; }
+  .section-eyebrow.light { color: #5eead4; }
   .section-title {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 800;
@@ -575,7 +575,7 @@ const latestPosts = allPosts
 
   /* ─── APPROACH STRIP ─── */
   .approach-strip {
-    background: linear-gradient(135deg, var(--g800) 0%, var(--g700) 100%);
+    background: linear-gradient(135deg, #0d1117 0%, #1e2d3d 100%);
     padding: 5rem 1.5rem;
     color: #fff;
   }
@@ -628,7 +628,7 @@ const latestPosts = allPosts
     display: block;
     font-size: 2rem;
     font-weight: 800;
-    color: #86efac;
+    color: #5eead4;
     line-height: 1;
     letter-spacing: -0.03em;
   }
@@ -669,7 +669,7 @@ const latestPosts = allPosts
     text-decoration: none;
   }
   .post-card:hover {
-    border-color: #86efac;
+    border-color: #5eead4;
     box-shadow: var(--shadow-md);
     transform: translateX(3px);
   }
@@ -718,7 +718,7 @@ const latestPosts = allPosts
     padding: 0 1.5rem 5rem;
   }
   .final-cta {
-    background: linear-gradient(135deg, var(--g900) 0%, var(--g800) 100%);
+    background: linear-gradient(135deg, #0d1117 0%, #1e2d3d 100%);
     border-radius: var(--radius-lg);
     padding: 3rem 2.5rem;
     display: flex;
@@ -734,7 +734,7 @@ const latestPosts = allPosts
     top: -60px; right: -60px;
     width: 220px; height: 220px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(34,197,94,.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(20,184,166,.18) 0%, transparent 70%);
     pointer-events: none;
   }
   @media (min-width: 640px) {
@@ -747,9 +747,9 @@ const latestPosts = allPosts
   .final-cta-text { color: #fff; max-width: 440px; }
   .free-badge {
     display: inline-block;
-    background: rgba(134,239,172,.15);
-    border: 1px solid rgba(134,239,172,.35);
-    color: #86efac;
+    background: rgba(94,234,212,.12);
+    border: 1px solid rgba(94,234,212,.3);
+    color: #5eead4;
     font-size: 0.82rem;
     font-weight: 700;
     padding: 0.35rem 0.9rem;
