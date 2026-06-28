@@ -4,7 +4,29 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Despre mine — Puie Radu, Tehnician Nutriționist">
   <article class="despre">
-    <h1>Despre mine</h1>
+
+    <div class="profile-header">
+      <img
+        src="https://eu-central-1.linodeobjects.com/eatntrack-profile/users/1288657/759edf96-0983-4bd3-b6b3-a682a54bb6fb.jpg"
+        alt="Puie Radu — Tehnician Nutriționist"
+        class="profile-photo"
+        width="120"
+        height="120"
+      />
+      <div class="profile-info">
+        <h1>Puie Radu</h1>
+        <p class="profile-role">Tehnician Nutriționist · Diplomă 2021</p>
+        <a
+          href="https://eatntrack.ro/coaches/radu-p"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="eatntrack-badge"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Profil pe EatNtrack
+        </a>
+      </div>
+    </div>
 
     <p class="intro">
       Sunt <strong>Puie Radu</strong>, tehnician nutriționist pasionat de nutriția echilibrată
@@ -47,9 +69,55 @@ import Layout from '../layouts/Layout.astro';
     .despre {
       max-width: 680px;
     }
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .profile-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #d4eddf;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .profile-role {
+      color: #16794a;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .eatntrack-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 99px;
+      text-decoration: none;
+      width: fit-content;
+      transition: all 0.15s;
+    }
+    .eatntrack-badge:hover {
+      background: #dcfce7;
+      border-color: #86efac;
+    }
     h1 {
       font-size: 2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.25rem;
     }
     .intro {
       font-size: 1.1rem;
