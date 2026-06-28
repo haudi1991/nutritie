@@ -11,6 +11,20 @@ import Layout from '../layouts/Layout.astro';
       <p class="intro">Prima consultație e gratuită — 30 de minute, online, fără obligații.</p>
     </div>
 
+    <!-- Calendly CTA -->
+    <a href="https://calendly.com/radupuie/30min" target="_blank" rel="noopener noreferrer" class="calendly-card">
+      <div class="calendly-card-left">
+        <div class="calendly-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <p class="calendly-label">Prima consultație gratuită</p>
+          <p class="calendly-sub">30 min · Online · Fără obligații</p>
+        </div>
+      </div>
+      <span class="calendly-arrow">Programează →</span>
+    </a>
+
     <!-- WhatsApp card cu QR -->
     <div class="wa-card">
       <div class="wa-card-body">
@@ -19,7 +33,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div>
           <p class="wa-label">WhatsApp</p>
-          <p class="wa-number">0724 212 779</p>
           <a href="https://wa.me/40724212779" target="_blank" rel="noopener noreferrer" class="wa-btn">
             Trimite mesaj
           </a>
@@ -35,12 +48,6 @@ import Layout from '../layouts/Layout.astro';
         <p class="qr-hint">Scanează pentru a deschide chat</p>
       </div>
     </div>
-
-    <!-- Calendly CTA -->
-    <a href="https://calendly.com/radupuie/30min" target="_blank" rel="noopener noreferrer" class="calendly-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      Programează consultație gratuită
-    </a>
 
     <!-- Iconițe contact -->
     <div class="contact-icons">
@@ -87,7 +94,7 @@ import Layout from '../layouts/Layout.astro';
       border: 1px solid var(--border);
       border-radius: var(--r-md);
       padding: 1.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       box-shadow: var(--shadow-sm);
     }
     .wa-card-body {
@@ -113,12 +120,6 @@ import Layout from '../layouts/Layout.astro';
       letter-spacing: 0.06em;
       color: var(--text-muted);
       margin: 0 0 0.15rem;
-    }
-    .wa-number {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text);
-      margin: 0 0 0.75rem;
     }
     .wa-btn {
       display: inline-flex;
@@ -155,23 +156,58 @@ import Layout from '../layouts/Layout.astro';
       margin: 0;
     }
 
-    /* Calendly */
-    .calendly-btn {
+    /* Calendly card */
+    .calendly-card {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      background: var(--accent);
+      justify-content: space-between;
+      gap: 1rem;
+      background: linear-gradient(135deg, var(--ink-950) 0%, var(--ink-800) 100%);
       color: #fff;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.85rem 1.5rem;
-      border-radius: var(--r-sm);
+      border-radius: var(--r-md);
+      padding: 1.25rem 1.5rem;
       text-decoration: none;
-      margin-bottom: 2rem;
-      transition: background 0.15s;
-      width: fit-content;
+      margin-bottom: 1rem;
+      transition: opacity 0.15s, transform 0.15s;
+      box-shadow: var(--shadow-md);
     }
-    .calendly-btn:hover { background: var(--accent-mid); }
+    .calendly-card:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+    .calendly-card-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .calendly-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .calendly-label {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 0.2rem;
+    }
+    .calendly-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,.6);
+      margin: 0;
+    }
+    .calendly-arrow {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent-lit);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
 
     /* Iconițe contact */
     .contact-icons {
