@@ -8,14 +8,36 @@ const latestPosts = allPosts
   .slice(0, 3);
 ---
 
-<Layout title="Numele Tău — Nutriționist">
+<Layout title="Puie Radu — Tehnician Nutriționist">
   <section class="hero">
-    <h1>Salut, sunt [Numele Tău]</h1>
+    <h1>Salut, sunt Puie Radu</h1>
+    <p class="tagline">Tehnician Nutriționist</p>
     <p class="subtitle">
-      Nutriționist atestat. Te ajut să înțelegi nutriția fără mituri și fără
-      diete miraculoase — doar informație de încredere.
+      Pasionat de nutriția echilibrată și de schimbări sustenabile ale stilului de viață.
+      Te ajut să îți atingi obiectivele fără diete restrictive, adaptat nevoilor tale reale.
     </p>
-    <a href="/blog" class="cta">Citește articolele</a>
+    <div class="hero-ctas">
+      <a href="/contact" class="cta">Programează o consultație</a>
+      <a href="/despre" class="cta cta-secondary">Află mai multe despre mine</a>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="benefit-card">
+      <span class="benefit-icon">🥗</span>
+      <h3>Fără diete stricte</h3>
+      <p>Adaptăm alimentația la viața ta reală, nu invers.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">📚</span>
+      <h3>Educație nutrițională</h3>
+      <p>Înțelegi ce mănânci și de ce — nu urmezi reguli oarbe.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">🎯</span>
+      <h3>Obiective clare</h3>
+      <p>Slăbit sănătos, relație mai bună cu mâncarea, obiceiuri durabile.</p>
+    </div>
   </section>
 
   <section>
@@ -29,30 +51,85 @@ const latestPosts = allPosts
         </li>
       ))}
     </ul>
+    {latestPosts.length > 0 && <p><a href="/blog">Vezi toate articolele →</a></p>}
   </section>
 
   <style>
     .hero {
       text-align: center;
-      padding: 3rem 0;
+      padding: 3.5rem 0 2.5rem;
     }
     .hero h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.4rem;
+      margin-bottom: 0.3rem;
+    }
+    .tagline {
+      font-size: 1.1rem;
+      color: #16794a;
+      font-weight: 600;
+      margin: 0 auto 1rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
     .subtitle {
       color: #555;
-      max-width: 500px;
-      margin: 0 auto 1.5rem;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     .cta {
       display: inline-block;
       background: #16794a;
       color: white;
-      padding: 0.7rem 1.5rem;
+      padding: 0.75rem 1.6rem;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
+      transition: background 0.2s;
+    }
+    .cta:hover {
+      background: #0f5c37;
+    }
+    .cta-secondary {
+      background: transparent;
+      color: #16794a;
+      border: 2px solid #16794a;
+    }
+    .cta-secondary:hover {
+      background: #f0faf5;
+    }
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .benefit-card {
+      background: #f8fffe;
+      border: 1px solid #d4eddf;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .benefit-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .benefit-card h3 {
+      margin: 0 0 0.5rem;
+      color: #16794a;
+    }
+    .benefit-card p {
+      margin: 0;
+      color: #555;
+      font-size: 0.95rem;
     }
     .post-list {
       list-style: none;

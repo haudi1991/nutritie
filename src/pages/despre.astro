@@ -2,19 +2,111 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Despre mine — Numele Tău">
-  <h1>Despre mine</h1>
-  <p>
-    Sunt [Numele Tău], nutriționist atestat de [denumire atestat / instituție].
-    Lucrez cu persoane care vor să-și schimbe relația cu alimentația, fără
-    diete restrictive și fără promisiuni nerealiste.
-  </p>
-  <p>
-    <strong>Calificări:</strong> [completează aici atestatul, anul obținerii,
-    instituția emitentă și eventuale specializări].
-  </p>
-  <p>
-    Cred în nutriție bazată pe dovezi științifice, adaptată la viața reală a
-    fiecărei persoane — nu în soluții universale.
-  </p>
+<Layout title="Despre mine — Puie Radu, Tehnician Nutriționist">
+  <article class="despre">
+    <h1>Despre mine</h1>
+
+    <p class="intro">
+      Sunt <strong>Puie Radu</strong>, tehnician nutriționist pasionat de nutriția echilibrată
+      și de schimbări sustenabile ale stilului de viață. Te ajut să îți atingi obiectivele
+      fără diete restrictive, adaptat nevoilor tale reale.
+    </p>
+
+    <p>
+      Lucrez cu persoane care vor să își îmbunătățească relația cu mâncarea, să slăbească
+      sănătos sau pur și simplu să aibă mai multă claritate în alegerile zilnice. Accentul
+      este pus pe <strong>educație nutrițională</strong>, conștientizare și construirea unor
+      obiceiuri care pot fi menținute pe termen lung.
+    </p>
+
+    <p>
+      Nu cred în diete stricte sau reguli rigide, ci în înțelegerea propriului corp și în
+      adaptarea alimentației la stilul tău de viață real. Te susțin pas cu pas, cu explicații
+      clare, ghidare practică și ajustări în funcție de ce funcționează pentru tine.
+    </p>
+
+    <blockquote>
+      Obiectivul meu este să te ajut să capăți încredere, control și liniște în jurul
+      alimentației, astfel încât nutriția să devină un aliat, nu o sursă de stres.
+    </blockquote>
+
+    <h2>Calificări</h2>
+    <ul class="calificari">
+      <li>
+        <strong>Diplomă de Tehnician Nutriționist</strong> — obținută în 2021
+      </li>
+    </ul>
+
+    <div class="cta-box">
+      <p>Vrei să începem împreună?</p>
+      <a href="/contact" class="cta">Contactează-mă</a>
+    </div>
+  </article>
+
+  <style>
+    .despre {
+      max-width: 680px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .intro {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #222;
+    }
+    p {
+      color: #444;
+      line-height: 1.75;
+    }
+    blockquote {
+      border-left: 4px solid #16794a;
+      margin: 2rem 0;
+      padding: 1rem 1.5rem;
+      background: #f0faf5;
+      border-radius: 0 8px 8px 0;
+      color: #1a1a1a;
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      color: #16794a;
+    }
+    .calificari {
+      padding-left: 1.2rem;
+    }
+    .calificari li {
+      padding: 0.4rem 0;
+      color: #444;
+    }
+    .cta-box {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: #f8fffe;
+      border: 1px solid #d4eddf;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .cta-box p {
+      margin: 0 0 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    .cta {
+      display: inline-block;
+      background: #16794a;
+      color: white;
+      padding: 0.75rem 1.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .cta:hover {
+      background: #0f5c37;
+    }
+  </style>
 </Layout>
