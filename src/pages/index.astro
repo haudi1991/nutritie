@@ -183,7 +183,7 @@ const latestPosts = allPosts
             WhatsApp
           </a>
           <span class="divider">·</span>
-          <a href="mailto:puieradu14@gmail.com">puieradu14@gmail.com</a>
+          <a href="mailto:puieradu14@gmail.com" data-tooltip="puieradu14@gmail.com">Email</a>
         </div>
       </div>
     </div>
@@ -700,6 +700,26 @@ const latestPosts = allPosts
   }
   .alt-contacts a:hover { color: rgba(255,255,255,.9); }
   .alt-contacts .divider { color: rgba(255,255,255,.25); font-size: 0.9rem; }
+  .alt-contacts a[data-tooltip] { position: relative; }
+  .alt-contacts a[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,.95);
+    color: var(--ink-950);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  }
+  .alt-contacts a[data-tooltip]:hover::after { opacity: 1; }
 
   /* ─── SHARED ─── */
   .container {
