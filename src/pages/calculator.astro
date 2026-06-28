@@ -1,0 +1,468 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Calculator Calorii — Puie Radu" description="Calculator TDEE, BMR și macronutrienți simplu. Află câte calorii ai nevoie pe zi." padded>
+
+  <section class="calc-page">
+
+    <div class="page-header">
+      <p class="eyebrow">Instrument gratuit</p>
+      <h1>Calculator calorii</h1>
+      <p class="page-intro">Află câte calorii ai nevoie zilnic și cum să îți distribui macronutrienții — simplu, fără procente.</p>
+    </div>
+
+    <!-- Formular -->
+    <div class="calc-card">
+
+      <div class="calc-grid">
+
+        <div class="field-group">
+          <label for="sex">Sex</label>
+          <select id="sex">
+            <option value="male">Masculin</option>
+            <option value="female">Feminin</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="age">Vârstă</label>
+          <div class="input-unit">
+            <input id="age" type="number" min="10" max="100" placeholder="Ex: 28" />
+            <span>ani</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="height">Înălțime</label>
+          <div class="input-unit">
+            <input id="height" type="number" min="100" max="250" placeholder="Ex: 175" />
+            <span>cm</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="weight">Greutate</label>
+          <div class="input-unit">
+            <input id="weight" type="number" min="30" max="300" step="0.1" placeholder="Ex: 75" />
+            <span>kg</span>
+          </div>
+        </div>
+
+        <div class="field-group field-group--full">
+          <label for="activity">Nivel de activitate</label>
+          <select id="activity">
+            <option value="1.2">Sedentar — birou, fără sport</option>
+            <option value="1.375">Ușor activ — 1-2 antrenamente/săpt.</option>
+            <option value="1.55" selected>Moderat activ — 3-4 antrenamente/săpt.</option>
+            <option value="1.725">Foarte activ — 5-6 antrenamente/săpt.</option>
+            <option value="1.9">Extrem activ — sport zilnic + job fizic</option>
+          </select>
+        </div>
+
+        <div class="field-group field-group--full">
+          <label for="goal">Obiectiv</label>
+          <div class="goal-pills">
+            <label class="goal-pill">
+              <input type="radio" name="goal" value="cut"> Slăbire
+            </label>
+            <label class="goal-pill goal-pill--active">
+              <input type="radio" name="goal" value="maint" checked> Menținere
+            </label>
+            <label class="goal-pill">
+              <input type="radio" name="goal" value="bulk"> Masă musculară
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="calc-btn" id="calcBtn">Calculează</button>
+
+    </div>
+
+    <!-- Rezultate -->
+    <div class="results" id="results" style="display:none">
+
+      <div class="results-kpi">
+        <div class="kpi-box">
+          <span class="kpi-label">BMR</span>
+          <strong class="kpi-val" id="bmrOut">—</strong>
+          <span class="kpi-sub">kcal/zi în repaus</span>
+        </div>
+        <div class="kpi-box kpi-box--accent">
+          <span class="kpi-label">Calorii zilnice</span>
+          <strong class="kpi-val" id="kcalOut">—</strong>
+          <span class="kpi-sub" id="goalLabel">—</span>
+        </div>
+        <div class="kpi-box">
+          <span class="kpi-label">IMC</span>
+          <strong class="kpi-val" id="bmiOut">—</strong>
+          <span class="kpi-sub" id="bmiCat">—</span>
+        </div>
+      </div>
+
+      <div class="macro-section">
+        <h2 class="macro-title">Macronutrienți recomandate <span class="macro-kcal" id="macroKcalLabel"></span></h2>
+        <p class="macro-hint">Gramaje calculate automat. Ajustează după preferință.</p>
+
+        <div class="macro-rows">
+
+          <div class="macro-row macro-row--protein">
+            <div class="macro-icon">P</div>
+            <div class="macro-info">
+              <strong>Proteine</strong>
+              <span>4 kcal/g · susțin masa musculară</span>
+            </div>
+            <div class="macro-val">
+              <strong id="pOut">—</strong>
+              <span>g/zi</span>
+            </div>
+          </div>
+
+          <div class="macro-row macro-row--fat">
+            <div class="macro-icon">G</div>
+            <div class="macro-info">
+              <strong>Grăsimi</strong>
+              <span>9 kcal/g · hormoni & vitamine</span>
+            </div>
+            <div class="macro-val">
+              <strong id="fOut">—</strong>
+              <span>g/zi</span>
+            </div>
+          </div>
+
+          <div class="macro-row macro-row--carb">
+            <div class="macro-icon">C</div>
+            <div class="macro-info">
+              <strong>Carbohidrați</strong>
+              <span>4 kcal/g · energie & performanță</span>
+            </div>
+            <div class="macro-val">
+              <strong id="cOut">—</strong>
+              <span>g/zi</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>Aceste valori sunt estimări bazate pe formula Mifflin–St Jeor. Pentru un plan personalizat adaptat la tine, <a href="/contact">contactează-mă</a> sau <a href="https://calendly.com/radupuie/30min" target="_blank" rel="noopener noreferrer">programează o consultație gratuită</a>.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <style>
+    .calc-page { max-width: 600px; }
+
+    .page-header { margin-bottom: 2rem; }
+    .page-header h1 { font-size: 2.2rem; margin: 0.25rem 0 0.5rem; }
+    .page-intro { color: var(--text-muted); font-size: 1rem; }
+
+    /* Card formular */
+    .calc-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 480px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+    .field-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .field-group--full { grid-column: 1 / -1; }
+    .field-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .field-group input,
+    .field-group select {
+      width: 100%;
+      font: inherit;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 0.6rem 0.75rem;
+      outline: none;
+      transition: border-color 0.15s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .field-group input:focus,
+    .field-group select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-50);
+    }
+    .input-unit {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .input-unit input {
+      border-radius: var(--r-sm) 0 0 var(--r-sm);
+    }
+    .input-unit span {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: none;
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      padding: 0.6rem 0.75rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* Goal pills */
+    .goal-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .goal-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      color: var(--text);
+      background: var(--bg);
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .goal-pill input { display: none; }
+    .goal-pill:has(input:checked),
+    .goal-pill--active {
+      border-color: var(--accent);
+      background: var(--accent-50);
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .goal-pill:hover { border-color: var(--accent-mid); }
+
+    /* Buton */
+    .calc-btn {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-sm);
+      padding: 0.85rem;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .calc-btn:hover { background: var(--accent-mid); transform: translateY(-1px); }
+    .calc-btn:active { transform: translateY(0); }
+
+    /* KPI */
+    .results-kpi {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 480px) {
+      .results-kpi { grid-template-columns: 1fr; }
+    }
+    .kpi-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .kpi-box--accent {
+      border-color: var(--accent);
+      background: var(--accent-50);
+    }
+    .kpi-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+    .kpi-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .kpi-box--accent .kpi-val { color: var(--accent); }
+    .kpi-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Macro */
+    .macro-section { margin-bottom: 1.5rem; }
+    .macro-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0 0 0.25rem;
+    }
+    .macro-kcal {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .macro-hint {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin: 0 0 1rem;
+    }
+    .macro-rows { display: flex; flex-direction: column; gap: 0.5rem; }
+    .macro-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 0.9rem 1rem;
+    }
+    .macro-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      color: #fff;
+    }
+    .macro-row--protein .macro-icon { background: #0ea5e9; }
+    .macro-row--fat     .macro-icon { background: #f59e0b; }
+    .macro-row--carb    .macro-icon { background: var(--accent); }
+    .macro-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .macro-info strong { font-size: 0.9rem; color: var(--text); }
+    .macro-info span { font-size: 0.75rem; color: var(--text-muted); }
+    .macro-val {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .macro-val strong { font-size: 1.3rem; font-weight: 800; color: var(--text); }
+    .macro-val span { font-size: 0.72rem; color: var(--text-muted); }
+
+    /* Disclaimer */
+    .disclaimer {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      background: var(--accent-50);
+      border: 1px solid var(--accent-100);
+      border-radius: var(--r-sm);
+      padding: 0.9rem 1rem;
+      color: var(--text);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+    .disclaimer svg { flex-shrink: 0; color: var(--accent); margin-top: 1px; }
+    .disclaimer p { margin: 0; }
+    .disclaimer a { color: var(--accent); font-weight: 600; }
+  </style>
+
+  <script is:inline>
+    function calc() {
+      const sex      = document.getElementById('sex').value;
+      const age      = parseFloat(document.getElementById('age').value);
+      const height   = parseFloat(document.getElementById('height').value);
+      const weight   = parseFloat(document.getElementById('weight').value);
+      const activity = parseFloat(document.getElementById('activity').value);
+      const goal     = document.querySelector('input[name="goal"]:checked').value;
+
+      if (!age || !height || !weight) {
+        alert('Completează vârsta, înălțimea și greutatea.');
+        return;
+      }
+
+      // BMR Mifflin-St Jeor
+      const bmr = sex === 'male'
+        ? 10 * weight + 6.25 * height - 5 * age + 5
+        : 10 * weight + 6.25 * height - 5 * age - 161;
+
+      const tdee = bmr * activity;
+
+      const delta = goal === 'cut' ? -400 : goal === 'bulk' ? 300 : 0;
+      const kcal = Math.round(tdee + delta);
+
+      const goalLabels = { cut: 'Scădere în greutate', maint: 'Menținere', bulk: 'Creștere masă musculară' };
+
+      // Macro în grame (distribuție fixă simplă)
+      // Proteine: 2g/kg greutate
+      // Grăsimi: 25% din calorii
+      // Carbo: restul
+      const pG = Math.round(weight * 2);
+      const fG = Math.round((kcal * 0.25) / 9);
+      const cKcal = kcal - pG * 4 - fG * 9;
+      const cG = Math.round(cKcal / 4);
+
+      // IMC
+      const bmi = weight / Math.pow(height / 100, 2);
+      const bmiCats = [
+        [18.5, 'Subponderal'],
+        [25,   'Normoponderal'],
+        [30,   'Supraponderal'],
+        [35,   'Obezitate grad I'],
+        [40,   'Obezitate grad II'],
+        [Infinity, 'Obezitate grad III'],
+      ];
+      const bmiCat = bmiCats.find(([limit]) => bmi < limit)[1];
+
+      document.getElementById('bmrOut').textContent   = Math.round(bmr);
+      document.getElementById('kcalOut').textContent  = kcal;
+      document.getElementById('goalLabel').textContent = goalLabels[goal];
+      document.getElementById('bmiOut').textContent   = bmi.toFixed(1);
+      document.getElementById('bmiCat').textContent   = bmiCat;
+      document.getElementById('macroKcalLabel').textContent = '(' + kcal + ' kcal/zi)';
+      document.getElementById('pOut').textContent     = pG;
+      document.getElementById('fOut').textContent     = fG;
+      document.getElementById('cOut').textContent     = Math.max(0, cG);
+
+      document.getElementById('results').style.display = 'block';
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Goal pill active state
+    document.querySelectorAll('.goal-pill input').forEach(function(inp) {
+      inp.addEventListener('change', function() {
+        document.querySelectorAll('.goal-pill').forEach(function(p) { p.classList.remove('goal-pill--active'); });
+        inp.closest('.goal-pill').classList.add('goal-pill--active');
+      });
+    });
+
+    document.getElementById('calcBtn').addEventListener('click', calc);
+  </script>
+
+</Layout>
