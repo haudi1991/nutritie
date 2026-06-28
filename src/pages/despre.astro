@@ -55,7 +55,24 @@ import Layout from '../layouts/Layout.astro';
     <h2>Calificări</h2>
     <ul class="calificari">
       <li>
-        <strong>Diplomă de Tehnician Nutriționist</strong> — obținută în 2021
+        <div class="cal-title"><strong>Diplomă de Tehnician Nutriționist</strong></div>
+        <div class="cal-meta">obținută în 2021</div>
+      </li>
+      <li>
+        <div class="cal-title"><strong>Curs — Nutriție aplicată în remodelarea corporală</strong></div>
+        <div class="cal-meta">ABC Fitness</div>
+      </li>
+      <li>
+        <div class="cal-title"><strong>Curs — Hipertrofia Musculară</strong></div>
+        <div class="cal-meta">ABC Fitness</div>
+      </li>
+      <li>
+        <div class="cal-title"><strong>Internship — Nutriție Clinică</strong></div>
+        <div class="cal-meta">1 an · Ionuț Ignat</div>
+      </li>
+      <li>
+        <div class="cal-title"><strong>Cursuri nutriție &amp; wellness</strong></div>
+        <div class="cal-meta">Udemy — <em>în curs de actualizare</em></div>
       </li>
     </ul>
 
@@ -143,11 +160,26 @@ import Layout from '../layouts/Layout.astro';
       color: #16794a;
     }
     .calificari {
-      padding-left: 1.2rem;
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
     }
     .calificari li {
-      padding: 0.4rem 0;
-      color: #444;
+      padding: 0.85rem 1rem;
+      background: #f8fffe;
+      border: 1px solid #d4eddf;
+      border-radius: 8px;
+    }
+    .cal-title {
+      color: #111827;
+      font-size: 0.97rem;
+    }
+    .cal-meta {
+      color: #6b7280;
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
     }
     .cta-box {
       margin-top: 2.5rem;
