@@ -54,35 +54,39 @@ import Layout from '../layouts/Layout.astro';
     <div class="contact-rows">
 
       <div class="contact-row">
-        <a href="tel:+40724212779" class="contact-row-link">
-          <div class="cr-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .92h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          </div>
-          <div class="cr-text">
-            <span class="cr-label">Telefon</span>
-            <span class="cr-value">0724 212 779</span>
-          </div>
-        </a>
-        <button class="copy-btn" data-copy="0724 212 779" aria-label="Copiază numărul de telefon">
-          <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-          <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </button>
+        <div class="cr-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .92h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="cr-text">
+          <span class="cr-label">Telefon</span>
+          <span class="cr-value">0724 212 779</span>
+        </div>
+        <div class="cr-actions">
+          <button class="copy-btn" data-copy="0724 212 779" aria-label="Copiază numărul">
+            <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="copy-label">Copiază</span>
+          </button>
+          <a href="tel:+40724212779" class="open-btn">Sună</a>
+        </div>
       </div>
 
       <div class="contact-row">
-        <a href="mailto:puieradu14@gmail.com" class="contact-row-link">
-          <div class="cr-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div class="cr-text">
-            <span class="cr-label">Email</span>
-            <span class="cr-value">puieradu14@gmail.com</span>
-          </div>
-        </a>
-        <button class="copy-btn" data-copy="puieradu14@gmail.com" aria-label="Copiază adresa de email">
-          <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-          <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </button>
+        <div class="cr-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="cr-text">
+          <span class="cr-label">Email</span>
+          <span class="cr-value">puieradu14@gmail.com</span>
+        </div>
+        <div class="cr-actions">
+          <button class="copy-btn" data-copy="puieradu14@gmail.com" aria-label="Copiază emailul">
+            <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="copy-label">Copiază</span>
+          </button>
+          <a href="mailto:puieradu14@gmail.com" class="open-btn">Email</a>
+        </div>
       </div>
 
       <a href="https://eatntrack.ro/coaches/radu-p" target="_blank" rel="noopener noreferrer" class="contact-row contact-row-link contact-row--link">
@@ -284,6 +288,13 @@ import Layout from '../layouts/Layout.astro';
       transition: border-color 0.15s;
     }
     .contact-row:hover { border-color: var(--accent); }
+    .cr-actions {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
     .contact-row-link {
       display: flex;
       align-items: center;
@@ -354,6 +365,22 @@ import Layout from '../layouts/Layout.astro';
     .copy-btn .icon-check { display: none; }
     .copy-btn.done .icon-copy { display: none; }
     .copy-btn.done .icon-check { display: block; }
+    .copy-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .copy-btn.done { border-color: #22c55e; color: #22c55e; background: #f0fdf4; }
+    .open-btn {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.35rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .open-btn:hover { color: var(--accent); border-color: var(--accent); }
   </style>
 
   <script is:inline>
