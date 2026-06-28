@@ -730,8 +730,7 @@ const latestPosts = allPosts
   }
 </style>
 
-<script>
-  document.querySelectorAll('.alt-contacts a[data-tooltip]').forEach(el => {
+<script is:inline>.forEach(el => {
     el.addEventListener('click', async (e) => {
       e.preventDefault();
       const text = el.dataset.tooltip;
