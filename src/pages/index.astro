@@ -27,7 +27,7 @@ const latestPosts = allPosts
         restrictive — cu educație, conștientizare și obiceiuri sustenabile.
       </p>
       <div class="hero-ctas">
-        <a href="/contact" class="btn btn-light">Programează o consultație</a>
+        <a href="https://calendly.com/radupuie/30min" target="_blank" rel="noopener noreferrer" class="btn btn-light">Programează o consultație</a>
         <a href="/despre" class="btn btn-outline">Despre mine</a>
       </div>
       <a href="https://eatntrack.ro/coaches/radu-p" target="_blank" rel="noopener noreferrer" class="eatntrack-link">
@@ -64,14 +64,15 @@ const latestPosts = allPosts
     </div>
   </section>
 
-  <!-- QUOTE STRIP -->
-  <section class="quote-strip">
-    <div class="container">
-      <blockquote>
-        „Obiectivul meu este să te ajut să capăți încredere, control și liniște în jurul alimentației,
-        astfel încât nutriția să devină un aliat, nu o sursă de stres."
-      </blockquote>
-      <p class="quote-author">— Puie Radu, Tehnician Nutriționist</p>
+  <!-- MISSION STRIP -->
+  <section class="mission-strip">
+    <div class="container mission-inner">
+      <p class="mission-label">🎯 Abordarea mea</p>
+      <h2 class="mission-title">Nutriția ca aliat, nu ca sursă de stres</h2>
+      <p class="mission-text">
+        Lucrez cu tine ca să capeți încredere, control și liniște în jurul alimentației —
+        prin înțelegere și obiceiuri adaptate vieții tale reale, nu prin reguli rigide.
+      </p>
     </div>
   </section>
 
@@ -299,26 +300,38 @@ const latestPosts = allPosts
     line-height: 1.6;
   }
 
-  /* ---- QUOTE STRIP ---- */
-  .quote-strip {
+  /* ---- MISSION STRIP ---- */
+  .mission-strip {
     background: linear-gradient(135deg, #0b3d2e, #166534);
     padding: 3.5rem 1.5rem;
-    text-align: center;
     color: #fff;
   }
-  .quote-strip blockquote {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    font-style: italic;
-    font-weight: 500;
-    color: rgba(255,255,255,0.92);
-    max-width: 680px;
-    margin: 0 auto 1rem;
-    line-height: 1.7;
+  .mission-inner {
+    text-align: center;
   }
-  .quote-author {
-    color: #86efac;
-    font-size: 0.9rem;
+  .mission-label {
+    font-size: 0.82rem;
     font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #86efac;
+    margin-bottom: 0.75rem;
+  }
+  .mission-title {
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mission-text {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.78);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
   }
 
   /* ---- BLOG ---- */
@@ -414,148 +427,5 @@ const latestPosts = allPosts
     flex-wrap: wrap;
   }
 </style>
-  <section class="hero">
-    <h1>Salut, sunt Puie Radu</h1>
-    <p class="tagline">Tehnician Nutriționist</p>
-    <p class="subtitle">
-      Pasionat de nutriția echilibrată și de schimbări sustenabile ale stilului de viață.
-      Te ajut să îți atingi obiectivele fără diete restrictive, adaptat nevoilor tale reale.
-    </p>
-    <div class="hero-ctas">
-      <a href="/contact" class="cta">Programează o consultație</a>
-      <a href="/despre" class="cta cta-secondary">Află mai multe despre mine</a>
-    </div>
-  </section>
 
-  <section class="benefits">
-    <div class="benefit-card">
-      <span class="benefit-icon">🥗</span>
-      <h3>Fără diete stricte</h3>
-      <p>Adaptăm alimentația la viața ta reală, nu invers.</p>
-    </div>
-    <div class="benefit-card">
-      <span class="benefit-icon">📚</span>
-      <h3>Educație nutrițională</h3>
-      <p>Înțelegi ce mănânci și de ce — nu urmezi reguli oarbe.</p>
-    </div>
-    <div class="benefit-card">
-      <span class="benefit-icon">🎯</span>
-      <h3>Obiective clare</h3>
-      <p>Slăbit sănătos, relație mai bună cu mâncarea, obiceiuri durabile.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Articole recente</h2>
-    {latestPosts.length === 0 && <p>Primele articole vor apărea aici în curând.</p>}
-    <ul class="post-list">
-      {latestPosts.map((post) => (
-        <li>
-          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
-          <p>{post.data.description}</p>
-        </li>
-      ))}
-    </ul>
-    {latestPosts.length > 0 && <p><a href="/blog">Vezi toate articolele →</a></p>}
-  </section>
-
-  <style>
-    .hero {
-      text-align: center;
-      padding: 3.5rem 0 2.5rem;
-    }
-    .hero h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.3rem;
-    }
-    .tagline {
-      font-size: 1.1rem;
-      color: #16794a;
-      font-weight: 600;
-      margin: 0 auto 1rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-    .subtitle {
-      color: #555;
-      max-width: 540px;
-      margin: 0 auto 2rem;
-      font-size: 1.05rem;
-    }
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .cta {
-      display: inline-block;
-      background: #16794a;
-      color: white;
-      padding: 0.75rem 1.6rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    .cta:hover {
-      background: #0f5c37;
-    }
-    .cta-secondary {
-      background: transparent;
-      color: #16794a;
-      border: 2px solid #16794a;
-    }
-    .cta-secondary:hover {
-      background: #f0faf5;
-    }
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2.5rem 0;
-    }
-    .benefit-card {
-      background: #f8fffe;
-      border: 1px solid #d4eddf;
-      border-radius: 10px;
-      padding: 1.5rem;
-      text-align: center;
-    }
-    .benefit-icon {
-      font-size: 2rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .benefit-card h3 {
-      margin: 0 0 0.5rem;
-      color: #16794a;
-    }
-    .benefit-card p {
-      margin: 0;
-      color: #555;
-      font-size: 0.95rem;
-    }
-    .post-list {
-      list-style: none;
-      padding: 0;
-    }
-    .post-list li {
-      padding: 1rem 0;
-      border-bottom: 1px solid #eee;
-    }
-    .post-list a {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #1a1a1a;
-      text-decoration: none;
-    }
-    .post-list a:hover {
-      color: #16794a;
-    }
-    .post-list p {
-      margin: 0.3rem 0 0;
-      color: #666;
-    }
-  </style>
 </Layout>

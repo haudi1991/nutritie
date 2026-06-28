@@ -2,9 +2,10 @@
 interface Props {
   title: string;
   description?: string;
+  padded?: boolean;
 }
 
-const { title, description = 'Tehnician nutritionist pasionat de nutriția echilibrată și schimbări sustenabile ale stilului de viață. Te ajut să îți atingi obiectivele fără diete restrictive.' } = Astro.props;
+const { title, description = 'Tehnician nutritionist pasionat de nutriția echilibrată și schimbări sustenabile ale stilului de viață. Te ajut să îți atingi obiectivele fără diete restrictive.', padded = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -35,7 +36,11 @@ const { title, description = 'Tehnician nutritionist pasionat de nutriția echil
     </header>
 
     <main>
-      <slot />
+      {padded ? (
+        <div class="page-pad"><slot /></div>
+      ) : (
+        <slot />
+      )}
     </main>
 
     <footer class="site-footer">
@@ -153,6 +158,11 @@ const { title, description = 'Tehnician nutritionist pasionat de nutriția echil
       }
       main {
         min-height: 60vh;
+      }
+      .page-pad {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem;
       }
       .site-footer {
         background: var(--green-900);

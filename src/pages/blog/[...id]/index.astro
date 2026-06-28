@@ -14,7 +14,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={`${post.data.title} — Numele Tău`} description={post.data.description}>
+<Layout title={`${post.data.title} — Puie Radu`} description={post.data.description} padded>
   <article>
     <a href="/blog" class="back-link">← Înapoi la blog</a>
     <h1>{post.data.title}</h1>
