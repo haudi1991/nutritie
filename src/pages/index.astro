@@ -92,7 +92,7 @@ const latestPosts = allPosts
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h3>Fără diete stricte</h3>
-        <p>Adaptăm alimentația la viața ta reală — fără interdicții extreme, fără număratul obsesiv al caloriilor.</p>
+        <p>Adaptăm alimentația la viața ta reală — fără interdicții extreme.</p>
       </div>
       <div class="bcard">
         <div class="bcard-icon">
@@ -196,29 +196,11 @@ const latestPosts = allPosts
 </Layout>
 
 <style>
-  /* ─── TOKENS ─── */
-  :root {
-    --g900: #0d1117;
-    --g800: #1e2d3d;
-    --g700: #0d9488;
-    --g500: #14b8a6;
-    --g100: #ccfbf1;
-    --g50:  #f0fdfa;
-    --text: #111827;
-    --muted: #6b7280;
-    --bg: #f8f7f4;
-    --white: #ffffff;
-    --radius-sm: 8px;
-    --radius-md: 14px;
-    --radius-lg: 20px;
-    --shadow-sm: 0 2px 12px rgba(0,0,0,.06);
-    --shadow-md: 0 4px 24px rgba(0,0,0,.10);
-    --shadow-lg: 0 12px 48px rgba(0,0,0,.14);
-  }
+  /* Tokens, reset, .btn-primary, .btn-ghost → src/styles/global.css */
 
   /* ─── HERO ─── */
   .hero {
-    background: linear-gradient(140deg, #0d1117 0%, #1a2332 55%, #1e2d3d 100%);
+    background: linear-gradient(140deg, var(--ink-950) 0%, var(--ink-900) 55%, var(--ink-800) 100%);
     position: relative;
     overflow: hidden;
     padding-top: 1rem;
@@ -260,7 +242,7 @@ const latestPosts = allPosts
   }
 
   .hero-text {
-    color: #fff;
+    color: var(--surface);
   }
   .eyebrow {
     display: inline-block;
@@ -268,7 +250,7 @@ const latestPosts = allPosts
     font-weight: 700;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: #5eead4;
+    color: var(--accent-lit);
     margin-bottom: 1.1rem;
   }
   .hero-text h1 {
@@ -276,12 +258,12 @@ const latestPosts = allPosts
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.03em;
-    color: #fff;
+    color: var(--surface);
     margin-bottom: 1.25rem;
   }
   .hero-text h1 em {
     font-style: normal;
-    background: linear-gradient(90deg, #5eead4, #2dd4bf);
+    background: linear-gradient(90deg, var(--accent-lit), var(--accent-mid));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -293,7 +275,7 @@ const latestPosts = allPosts
     max-width: 440px;
     margin-bottom: 2rem;
   }
-  .hero-sub strong { color: #fff; }
+  .hero-sub strong { color: var(--surface); }
 
   .hero-ctas {
     display: flex;
@@ -379,7 +361,7 @@ const latestPosts = allPosts
     border: 1px solid rgba(255,255,255,.2);
     border-radius: 12px;
     padding: 0.5rem 0.85rem;
-    color: #fff;
+    color: var(--surface);
     font-size: 0.78rem;
     white-space: nowrap;
   }
@@ -407,7 +389,7 @@ const latestPosts = allPosts
     transition: all 0.15s;
   }
   .eatntrack-badge:hover {
-    color: #fff;
+    color: var(--surface);
     border-color: rgba(255,255,255,.35);
     background: rgba(255,255,255,.07);
   }
@@ -420,108 +402,45 @@ const latestPosts = allPosts
   }
   .hero-wave svg { width: 100%; height: 70px; display: block; }
 
-  /* ─── BUTTONS ─── */
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #fff;
-    color: var(--g800);
-    font-weight: 700;
-    font-size: 0.95rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    transition: all 0.2s;
-    box-shadow: 0 2px 12px rgba(0,0,0,.15);
-  }
-  .btn-primary:hover {
-    background: var(--g50);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,.2);
-  }
+  /* ─── BUTTONS (page-specific only) ─── */
+  /* .btn-primary și .btn-ghost sunt în global.css */
   .btn-primary--lg {
     padding: 0.9rem 2rem;
     font-size: 1rem;
-    background: linear-gradient(135deg, var(--g700), var(--g800));
-    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--ink-800));
+    color: var(--surface);
+    box-shadow: none;
   }
   .btn-primary--lg:hover {
-    background: linear-gradient(135deg, var(--g800), var(--g900));
+    background: linear-gradient(135deg, var(--ink-800), var(--ink-950));
     transform: translateY(-2px);
-  }
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255,255,255,.1);
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.75rem 1.25rem;
-    border-radius: var(--radius-sm);
-    border: 1px solid rgba(255,255,255,.25);
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .btn-ghost:hover {
-    background: rgba(255,255,255,.18);
-    border-color: rgba(255,255,255,.5);
   }
   .btn-ghost-light {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    color: #5eead4;
+    color: var(--accent-lit);
     font-weight: 600;
     font-size: 0.9rem;
     text-decoration: none;
     margin-top: 1.25rem;
     transition: color 0.15s;
   }
-  .btn-ghost-light:hover { color: #fff; }
+  .btn-ghost-light:hover { color: var(--surface); }
 
   /* ─── SHARED SECTION STYLES ─── */
+  /* .section-title și .eyebrow sunt în global.css */
   .section-pad {
     padding: 5rem 1.5rem;
   }
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 2.5rem;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .section-header.centered {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .section-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--g700);
-    margin-bottom: 0.5rem;
-  }
-  .section-eyebrow.light { color: #5eead4; }
-  .section-title {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 800;
-    color: var(--text);
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-  }
   .section-sub {
-    color: var(--muted);
+    color: var(--text-muted);
     font-size: 1rem;
     max-width: 480px;
     margin-top: 0.5rem;
   }
   .see-all {
-    color: var(--g700);
+    color: var(--accent);
     font-weight: 600;
     font-size: 0.9rem;
     text-decoration: none;
@@ -537,11 +456,11 @@ const latestPosts = allPosts
     gap: 1.25rem;
   }
   .bcard {
-    background: var(--white);
-    border-radius: var(--radius-md);
+    background: var(--surface);
+    border-radius: var(--r-md);
     padding: 2rem 1.75rem;
     box-shadow: var(--shadow-sm);
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border);
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .bcard:hover {
@@ -552,13 +471,13 @@ const latestPosts = allPosts
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: var(--g50);
-    border: 1px solid var(--g100);
+    background: var(--accent-50);
+    border: 1px solid var(--accent-100);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.25rem;
-    color: var(--g700);
+    color: var(--accent);
   }
   .bcard h3 {
     font-size: 1.05rem;
@@ -568,16 +487,16 @@ const latestPosts = allPosts
     letter-spacing: -0.01em;
   }
   .bcard p {
-    color: var(--muted);
+    color: var(--text-muted);
     font-size: 0.93rem;
     line-height: 1.65;
   }
 
   /* ─── APPROACH STRIP ─── */
   .approach-strip {
-    background: linear-gradient(135deg, #0d1117 0%, #1e2d3d 100%);
+    background: linear-gradient(135deg, var(--ink-950) 0%, var(--ink-800) 100%);
     padding: 5rem 1.5rem;
-    color: #fff;
+    color: var(--surface);
   }
   .approach-inner {
     display: grid;
@@ -593,7 +512,7 @@ const latestPosts = allPosts
   .approach-text h2 {
     font-size: clamp(1.5rem, 3.5vw, 2.2rem);
     font-weight: 800;
-    color: #fff;
+    color: var(--surface);
     line-height: 1.15;
     letter-spacing: -0.03em;
     margin-bottom: 1rem;
@@ -619,7 +538,7 @@ const latestPosts = allPosts
   .stat {
     background: rgba(255,255,255,.08);
     border: 1px solid rgba(255,255,255,.15);
-    border-radius: var(--radius-md);
+    border-radius: var(--r-md);
     padding: 1.25rem 1.5rem;
     min-width: 120px;
     flex: 1;
@@ -628,7 +547,7 @@ const latestPosts = allPosts
     display: block;
     font-size: 2rem;
     font-weight: 800;
-    color: #5eead4;
+    color: var(--accent-lit);
     line-height: 1;
     letter-spacing: -0.03em;
   }
@@ -644,10 +563,10 @@ const latestPosts = allPosts
   .empty-blog {
     text-align: center;
     padding: 3rem;
-    background: var(--white);
-    border-radius: var(--radius-md);
-    color: var(--muted);
-    border: 1px solid #e5e7eb;
+    background: var(--surface);
+    border-radius: var(--r-md);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
   }
   .empty-blog span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
   .post-list {
@@ -657,9 +576,9 @@ const latestPosts = allPosts
     gap: 0.75rem;
   }
   .post-card {
-    background: var(--white);
-    border: 1px solid #e5e7eb;
-    border-radius: var(--radius-md);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
     padding: 1.4rem 1.5rem;
     display: flex;
     align-items: center;
@@ -669,7 +588,7 @@ const latestPosts = allPosts
     text-decoration: none;
   }
   .post-card:hover {
-    border-color: #5eead4;
+    border-color: var(--accent-lit);
     box-shadow: var(--shadow-md);
     transform: translateX(3px);
   }
@@ -683,9 +602,9 @@ const latestPosts = allPosts
     margin-bottom: 0.3rem;
     letter-spacing: -0.01em;
   }
-  .post-title:hover { color: var(--g700); }
+  .post-title:hover { color: var(--accent); }
   .post-desc {
-    color: var(--muted);
+    color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.5;
     display: -webkit-box;
@@ -698,19 +617,19 @@ const latestPosts = allPosts
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: var(--g50);
-    border: 1px solid var(--g100);
+    background: var(--accent-50);
+    border: 1px solid var(--accent-100);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--g700);
+    color: var(--accent);
     text-decoration: none;
     transition: all 0.2s;
   }
   .post-card:hover .post-arrow {
-    background: var(--g700);
-    color: #fff;
-    border-color: var(--g700);
+    background: var(--accent);
+    color: var(--surface);
+    border-color: var(--accent);
   }
 
   /* ─── FINAL CTA ─── */
@@ -718,8 +637,8 @@ const latestPosts = allPosts
     padding: 0 1.5rem 5rem;
   }
   .final-cta {
-    background: linear-gradient(135deg, #0d1117 0%, #1e2d3d 100%);
-    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--ink-950) 0%, var(--ink-800) 100%);
+    border-radius: var(--r-lg);
     padding: 3rem 2.5rem;
     display: flex;
     flex-direction: column;
@@ -744,12 +663,12 @@ const latestPosts = allPosts
       justify-content: space-between;
     }
   }
-  .final-cta-text { color: #fff; max-width: 440px; }
+  .final-cta-text { color: var(--surface); max-width: 440px; }
   .free-badge {
     display: inline-block;
     background: rgba(94,234,212,.12);
     border: 1px solid rgba(94,234,212,.3);
-    color: #5eead4;
+    color: var(--accent-lit);
     font-size: 0.82rem;
     font-weight: 700;
     padding: 0.35rem 0.9rem;

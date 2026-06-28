@@ -55,23 +55,23 @@ import Layout from '../layouts/Layout.astro';
       align-items: center;
       flex-wrap: wrap;
       gap: 0.5rem;
-      background: #f0fdfa;
-      border: 1px solid #5eead4;
+      background: var(--accent-50);
+      border: 1px solid var(--accent-lit);
       border-radius: 10px;
       padding: 0.9rem 1.2rem;
       margin: 1rem 0 1.5rem;
       font-size: 0.95rem;
-      color: #0f766e;
+      color: var(--accent);
     }
     .free-consult-banner a {
-      color: #0f766e;
+      color: var(--accent);
       font-weight: 700;
       text-decoration: underline;
       white-space: nowrap;
     }
-    .free-consult-banner a:hover { color: #0d1117; }
+    .free-consult-banner a:hover { color: var(--ink-950); }
     .intro {
-      color: #555;
+      color: var(--text-muted);
       margin-bottom: 2rem;
     }
     .contact-list {
@@ -87,17 +87,17 @@ import Layout from '../layouts/Layout.astro';
       align-items: center;
       gap: 0.75rem;
       padding: 1rem 1.25rem;
-      background: #f8f7f4;
-      border: 1px solid #d4eddf;
+      background: var(--bg);
+      border: 1px solid var(--accent-100);
       border-radius: 8px;
     }
     .contact-label {
       font-weight: 600;
-      color: #1a1a1a;
+      color: var(--text);
       min-width: 120px;
     }
     .contact-list a {
-      color: #0d9488;
+      color: var(--accent);
       text-decoration: none;
       font-weight: 500;
     }

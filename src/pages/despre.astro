@@ -98,7 +98,7 @@ import Layout from '../layouts/Layout.astro';
       height: 110px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #d4eddf;
+      border: 3px solid var(--accent-100);
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       flex-shrink: 0;
     }
@@ -108,7 +108,7 @@ import Layout from '../layouts/Layout.astro';
       gap: 0.4rem;
     }
     .profile-role {
-      color: #0d9488;
+      color: var(--accent);
       font-size: 0.95rem;
       font-weight: 600;
       margin: 0;
@@ -117,9 +117,9 @@ import Layout from '../layouts/Layout.astro';
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: #f0fdfa;
-      border: 1px solid #99f6e4;
-      color: #0d9488;
+      background: var(--accent-50);
+      border: 1px solid var(--accent-100);
+      color: var(--accent);
       font-size: 0.82rem;
       font-weight: 600;
       padding: 0.35rem 0.75rem;
@@ -129,8 +129,8 @@ import Layout from '../layouts/Layout.astro';
       transition: all 0.15s;
     }
     .eatntrack-badge:hover {
-      background: #ccfbf1;
-      border-color: #5eead4;
+      background: var(--accent-100);
+      border-color: var(--accent-lit);
     }
     h1 {
       font-size: 2rem;
@@ -139,25 +139,25 @@ import Layout from '../layouts/Layout.astro';
     .intro {
       font-size: 1.1rem;
       line-height: 1.7;
-      color: #222;
+      color: var(--text);
     }
     p {
-      color: #444;
+      color: var(--text-muted);
       line-height: 1.75;
     }
     blockquote {
-      border-left: 4px solid #14b8a6;
+      border-left: 4px solid var(--accent-mid);
       margin: 2rem 0;
       padding: 1rem 1.5rem;
-      background: #f0fdfa;
+      background: var(--accent-50);
       border-radius: 0 8px 8px 0;
-      color: #1a1a1a;
+      color: var(--text);
       font-style: italic;
       font-size: 1.05rem;
     }
     h2 {
       margin-top: 2rem;
-      color: #0d9488;
+      color: var(--accent);
     }
     .calificari {
       list-style: none;
@@ -168,24 +168,24 @@ import Layout from '../layouts/Layout.astro';
     }
     .calificari li {
       padding: 0.85rem 1rem;
-      background: #f8f8f6;
-      border: 1px solid #e2e8f0;
+      background: var(--bg);
+      border: 1px solid var(--border);
       border-radius: 8px;
     }
     .cal-title {
-      color: #111827;
+      color: var(--text);
       font-size: 0.97rem;
     }
     .cal-meta {
-      color: #6b7280;
+      color: var(--text-muted);
       font-size: 0.85rem;
       margin-top: 0.2rem;
     }
     .cta-box {
       margin-top: 2.5rem;
       padding: 2rem;
-      background: #f0fdfa;
-      border: 1px solid #99f6e4;
+      background: var(--accent-50);
+      border: 1px solid var(--accent-100);
       border-radius: 10px;
       text-align: center;
     }
@@ -193,11 +193,11 @@ import Layout from '../layouts/Layout.astro';
       margin: 0 0 1rem;
       font-size: 1.1rem;
       font-weight: 600;
-      color: #1a1a1a;
+      color: var(--text);
     }
     .cta {
       display: inline-block;
-      background: #0d9488;
+      background: var(--accent);
       color: white;
       padding: 0.75rem 1.6rem;
       border-radius: 6px;
@@ -206,7 +206,7 @@ import Layout from '../layouts/Layout.astro';
       transition: background 0.2s;
     }
     .cta:hover {
-      background: #0f766e;
+      background: var(--accent);
     }
   </style>
 </Layout>

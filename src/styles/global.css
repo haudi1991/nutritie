@@ -1,0 +1,210 @@
+/* ═══════════════════════════════════════════════════
+   DESIGN TOKENS — schimbă AICI, se aplică peste tot
+   ═══════════════════════════════════════════════════ */
+:root {
+  /* Culori dark (navbar, hero, secțiuni întunecate) */
+  --ink-950: #0d1117;
+  --ink-900: #1a2332;
+  --ink-800: #1e2d3d;
+  --ink-700: #243447;
+
+  /* Accent principal (teal) */
+  --accent:     #0d9488;
+  --accent-mid: #14b8a6;
+  --accent-lit: #5eead4;
+  --accent-100: #ccfbf1;
+  --accent-50:  #f0fdfa;
+
+  /* Neutrals */
+  --bg:         #f8f7f4;
+  --surface:    #ffffff;
+  --border:     #e2e8f0;
+  --text:       #111827;
+  --text-muted: #6b7280;
+
+  /* Tipografie */
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Radii */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-full: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 12px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 24px rgba(0,0,0,.10);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,.14);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESET + BASE
+   ═══════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+img { display: block; max-width: 100%; }
+
+/* ═══════════════════════════════════════════════════
+   LAYOUT HELPERS
+   ═══════════════════════════════════════════════════ */
+.container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.page-pad {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* ═══════════════════════════════════════════════════
+   COMPONENTE GLOBALE (refolosite în orice pagină)
+   ═══════════════════════════════════════════════════ */
+
+/* Buton primar (alb pe dark background) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface);
+  color: var(--ink-800);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--accent-50);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+}
+
+/* Buton accent (teal pe fundal deschis) */
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-accent:hover {
+  background: var(--ink-800);
+  transform: translateY(-2px);
+}
+
+/* Buton ghost (transparent pe dark background) */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--r-sm);
+  border: 1px solid rgba(255,255,255,.25);
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,.18);
+  border-color: rgba(255,255,255,.5);
+}
+
+/* Badge accent */
+.badge-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent-50);
+  border: 1px solid var(--accent-100);
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--r-full);
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.15s;
+}
+.badge-accent:hover {
+  background: var(--accent-100);
+  border-color: var(--accent-lit);
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.eyebrow--light { color: var(--accent-lit); }
+
+/* Section title */
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Banner informativ (free consultation etc.) */
+.info-banner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: var(--accent-50);
+  border: 1px solid var(--accent-lit);
+  color: #0f766e;
+  border-radius: var(--r-sm);
+  padding: 0.9rem 1.2rem;
+  font-size: 0.95rem;
+}
+.info-banner a {
+  color: #0f766e;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.info-banner a:hover { color: var(--ink-950); }
