@@ -14,16 +14,22 @@ const { title, description = 'Tehnician nutritionist pasionat de nutriția echil
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
     <header class="site-header">
-      <nav>
-        <a href="/" class="logo">Puie Radu — Nutriționist</a>
+      <nav class="nav-inner">
+        <a href="/" class="logo">
+          <span class="logo-icon">🌿</span>
+          Puie Radu
+        </a>
         <div class="nav-links">
           <a href="/">Acasă</a>
           <a href="/blog">Blog</a>
           <a href="/despre">Despre mine</a>
-          <a href="/contact">Contact</a>
+          <a href="/contact" class="nav-cta">Contact</a>
         </div>
       </nav>
     </header>
@@ -33,61 +39,166 @@ const { title, description = 'Tehnician nutritionist pasionat de nutriția echil
     </main>
 
     <footer class="site-footer">
-      <p>&copy; {new Date().getFullYear()} Puie Radu — Tehnician Nutriționist</p>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-icon">🌿</span>
+          <strong>Puie Radu</strong>
+          <span class="footer-subtitle">Tehnician Nutriționist</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="/">Acasă</a>
+          <a href="/blog">Blog</a>
+          <a href="/despre">Despre mine</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <p class="footer-copy">&copy; {new Date().getFullYear()} Puie Radu. Toate drepturile rezervate.</p>
+      </div>
     </footer>
 
     <style>
+      :global(:root) {
+        --green-900: #052e16;
+        --green-800: #0b3d2e;
+        --green-700: #0f5c37;
+        --green-600: #16803d;
+        --green-500: #22c55e;
+        --green-100: #dcfce7;
+        --green-50: #f0fdf4;
+        --bg: #f6faf7;
+        --surface: #ffffff;
+        --text: #111827;
+        --text-muted: #6b7280;
+        --radius: 12px;
+        --shadow: 0 2px 16px rgba(0,0,0,0.07);
+        --shadow-hover: 0 8px 32px rgba(0,0,0,0.13);
+      }
       :global(*) {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
       :global(body) {
-        margin: 0;
-        font-family: system-ui, -apple-system, sans-serif;
-        color: #1a1a1a;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        color: var(--text);
+        background: var(--bg);
         line-height: 1.6;
       }
-      .site-header {
-        border-bottom: 1px solid #eee;
-        padding: 1rem 2rem;
-      }
-      nav {
-        max-width: 800px;
+      :global(.container) {
+        max-width: 860px;
         margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      :global(h1), :global(h2), :global(h3) {
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--green-800);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      }
+      .nav-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        height: 64px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
         gap: 1rem;
       }
       .logo {
-        font-weight: bold;
-        font-size: 1.2rem;
-        color: #1a1a1a;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-weight: 700;
+        font-size: 1.15rem;
+        color: #ffffff;
         text-decoration: none;
+        letter-spacing: -0.01em;
+      }
+      .logo-icon {
+        font-size: 1.3rem;
       }
       .nav-links {
         display: flex;
-        gap: 1.5rem;
+        align-items: center;
+        gap: 0.25rem;
       }
       .nav-links a {
-        color: #444;
+        color: rgba(255,255,255,0.8);
         text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 0.4rem 0.75rem;
+        border-radius: 6px;
+        transition: all 0.15s;
       }
       .nav-links a:hover {
-        color: #16794a;
+        color: #ffffff;
+        background: rgba(255,255,255,0.1);
+      }
+      .nav-cta {
+        background: var(--green-500) !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+        padding: 0.45rem 1rem !important;
+        border-radius: 8px !important;
+      }
+      .nav-cta:hover {
+        background: #16a34a !important;
+        color: #fff !important;
       }
       main {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem;
         min-height: 60vh;
       }
       .site-footer {
+        background: var(--green-900);
+        color: rgba(255,255,255,0.7);
+        padding: 2.5rem 1.5rem;
+        margin-top: 4rem;
+      }
+      .footer-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
         text-align: center;
-        padding: 2rem;
-        color: #888;
+      }
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.05rem;
+        color: #fff;
+      }
+      .footer-subtitle {
+        color: rgba(255,255,255,0.5);
         font-size: 0.9rem;
-        border-top: 1px solid #eee;
+        margin-left: 0.25rem;
+      }
+      .footer-nav {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-nav a {
+        color: rgba(255,255,255,0.6);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.15s;
+      }
+      .footer-nav a:hover {
+        color: #fff;
+      }
+      .footer-copy {
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.35);
       }
     </style>
   </body>
