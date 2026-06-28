@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const latestPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<Layout title="Numele Tău — Nutriționist">
+  <section class="hero">
+    <h1>Salut, sunt [Numele Tău]</h1>
+    <p class="subtitle">
+      Nutriționist atestat. Te ajut să înțelegi nutriția fără mituri și fără
+      diete miraculoase — doar informație de încredere.
+    </p>
+    <a href="/blog" class="cta">Citește articolele</a>
+  </section>
+
+  <section>
+    <h2>Articole recente</h2>
+    {latestPosts.length === 0 && <p>Primele articole vor apărea aici în curând.</p>}
+    <ul class="post-list">
+      {latestPosts.map((post) => (
+        <li>
+          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+          <p>{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <style>
+    .hero {
+      text-align: center;
+      padding: 3rem 0;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      color: #555;
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+    }
+    .cta {
+      display: inline-block;
+      background: #16794a;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .post-list {
+      list-style: none;
+      padding: 0;
+    }
+    .post-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    .post-list a {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+    .post-list a:hover {
+      color: #16794a;
+    }
+    .post-list p {
+      margin: 0.3rem 0 0;
+      color: #666;
+    }
+  </style>
+</Layout>
