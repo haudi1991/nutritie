@@ -282,5 +282,42 @@ import Layout from '../layouts/Layout.astro';
       box-shadow: 0 2px 8px rgba(0,0,0,.15);
     }
     .contact-icon-btn[data-tooltip]:hover::after { opacity: 1; }
+    .contact-icon-btn.copied::after { opacity: 1; }
   </style>
+
+  <script>
+    document.querySelectorAll('[data-tooltip].contact-icon-btn').forEach(el => {
+      el.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const text = el.dataset.tooltip;
+        try {
+          await navigator.clipboard.writeText(text);
+          const orig = el.dataset.tooltip;
+          el.dataset.tooltip = 'Copiat ✓';
+          el.classList.add('copied');
+          setTimeout(() => {
+            el.dataset.tooltip = orig;
+            el.classList.remove('copied');
+          }, 1800);
+        } catch {}
+      });
+    });
+  </script>
+    document.querySelectorAll('.contact-icon-btn[data-tooltip]').forEach(el => {
+      el.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const text = el.dataset.tooltip;
+        try {
+          await navigator.clipboard.writeText(text);
+          const orig = el.dataset.tooltip;
+          el.dataset.tooltip = 'Copiat ✓';
+          el.classList.add('copied');
+          setTimeout(() => {
+            el.dataset.tooltip = orig;
+            el.classList.remove('copied');
+          }, 1800);
+        } catch {}
+      });
+    });
+  </script>
 </Layout>

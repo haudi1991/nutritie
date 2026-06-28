@@ -720,6 +720,7 @@ const latestPosts = allPosts
     box-shadow: 0 2px 8px rgba(0,0,0,.2);
   }
   .alt-contacts a[data-tooltip]:hover::after { opacity: 1; }
+  .alt-contacts a[data-tooltip].copied::after { opacity: 1; }
 
   /* ─── SHARED ─── */
   .container {
@@ -728,3 +729,22 @@ const latestPosts = allPosts
     margin-right: auto;
   }
 </style>
+
+<script>
+  document.querySelectorAll('.alt-contacts a[data-tooltip]').forEach(el => {
+    el.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const text = el.dataset.tooltip;
+      try {
+        await navigator.clipboard.writeText(text);
+        const orig = el.dataset.tooltip;
+        el.dataset.tooltip = 'Copiat ✓';
+        el.classList.add('copied');
+        setTimeout(() => {
+          el.dataset.tooltip = orig;
+          el.classList.remove('copied');
+        }, 1800);
+      } catch {}
+    });
+  });
+</script>
