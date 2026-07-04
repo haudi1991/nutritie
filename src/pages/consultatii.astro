@@ -13,6 +13,30 @@ import PackageCard from '../components/PackageCard.astro';
       <p class="page-intro">Totul se desfășoară online, 1:1, adaptat la ritmul și obiectivele tale. Prima consultație e mereu gratuită.</p>
     </div>
 
+    <!-- Cum lucrez -->
+    <div class="how-i-work">
+      <p class="eyebrow">Cum lucrez</p>
+      <h2>Ce înseamnă concret să colaborăm</h2>
+      <p class="how-intro">Înainte să programezi consultația, vreau să știi exact cum abordez procesul — ca să fim aliniați din start.</p>
+      <div class="how-cards">
+        <div class="how-card">
+          <div class="how-icon">📱</div>
+          <h3>Tracking în aplicație</h3>
+          <p>Lucrez exclusiv cu clienți care trackuiesc alimentele în aplicație (EatNtrack, MyFitnessPal sau similar), cu cantități <strong>cântărite</strong>. Fără date reale, nu pot face ajustări reale.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-icon">⚖️</div>
+          <h3>Cântăriri & măsurători</h3>
+          <p>Pe parcursul colaborării, urmărim progresul prin cântăriri periodice și/sau măsurători corporale — în funcție de obiectiv și context. Cântarul e un instrument, nu un judecător.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-icon">📊</div>
+          <h3>Decizii bazate pe date</h3>
+          <p>Ajustările planului se fac pe baza a ce arată datele — nu pe baza impresiilor. Asta e diferența dintre a progresa și a te învârti în cerc.</p>
+        </div>
+      </div>
+    </div>
+
     <!-- Pachete -->
     <div class="packages">
       <PackageCard
@@ -48,6 +72,10 @@ import PackageCard from '../components/PackageCard.astro';
           <p>Totul e online, prin video call. Nu e nevoie să te deplasezi nicăieri.</p>
         </details>
         <details class="faq">
+          <summary>De ce e obligatoriu trackingul cu cântărire?</summary>
+          <p>Pentru că fără date concrete nu pot face ajustări precise. Estimările „din ochi" pot devia cu 30–50% față de realitate — ceea ce face imposibilă orice optimizare serioasă. Trackingul nu e pedeapsă, e instrumentul care îți dă control real asupra alimentației tale.</p>
+        </details>
+        <details class="faq">
           <summary>Trebuie să urmez o dietă strictă?</summary>
           <p>Nu. Filosofia mea e adaptarea alimentației la viața ta reală — fără interdicții extreme sau liste de alimente interzise.</p>
         </details>
@@ -77,6 +105,64 @@ import PackageCard from '../components/PackageCard.astro';
       font-size: 1rem;
       max-width: 520px;
     }
+
+    /* Cum lucrez */
+    .how-i-work {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .how-i-work h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0.25rem 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .how-intro {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      max-width: 500px;
+    }
+    .how-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.875rem;
+    }
+    @media (min-width: 640px) {
+      .how-cards { grid-template-columns: repeat(3, 1fr); }
+    }
+    .how-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 1.25rem 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .how-card:first-child {
+      border-color: var(--accent);
+      background: var(--accent-50);
+    }
+    .how-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .how-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+    .how-card p {
+      font-size: 0.855rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .how-card:first-child p { color: var(--text); }
 
     /* Pachete */
     .packages {
