@@ -1,0 +1,150 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  tagline: string;
+  description: string;
+  items: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  ctaExternal?: boolean;
+  featured?: boolean;
+  featuredLabel?: string;
+}
+const {
+  icon,
+  title,
+  tagline,
+  description,
+  items,
+  ctaLabel,
+  ctaHref,
+  ctaExternal = false,
+  featured = false,
+  featuredLabel = 'Recomandat',
+} = Astro.props;
+---
+
+<div class:list={['package', { 'package--featured': featured }]}>
+  {featured && <div class="pkg-badge">{featuredLabel}</div>}
+  <div class="pkg-icon">{icon}</div>
+  <h2>{title}</h2>
+  <p class="pkg-tagline">{tagline}</p>
+  <p class="pkg-desc">{description}</p>
+  <ul class="pkg-list">
+    {items.map(item => <li>{item}</li>)}
+  </ul>
+  <a
+    href={ctaHref}
+    class:list={['pkg-cta', featured ? 'pkg-cta--primary' : 'pkg-cta--secondary']}
+    {...ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+  >
+    {ctaLabel}
+  </a>
+</div>
+
+<style>
+  .package {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .package:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  .package--featured {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), var(--shadow-sm);
+  }
+  .pkg-badge {
+    position: absolute;
+    top: -11px;
+    left: 1.25rem;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    border-radius: 99px;
+  }
+  .pkg-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+  }
+  .pkg-tagline {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0;
+  }
+  .pkg-desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .pkg-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+  }
+  .pkg-list li {
+    font-size: 0.85rem;
+    color: var(--text);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .pkg-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .pkg-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1rem;
+    border-radius: var(--r-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.15s;
+    margin-top: auto;
+  }
+  .pkg-cta--primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .pkg-cta--primary:hover { background: var(--accent-mid); }
+  .pkg-cta--secondary {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .pkg-cta--secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+</style>

@@ -1,0 +1,137 @@
+---
+interface Props {
+  label: string;
+  value: string;
+  href: string;
+  copyValue?: string;
+  openLabel?: string;
+  external?: boolean;
+}
+const { label, value, href, copyValue, openLabel, external = false } = Astro.props;
+
+const iconMap: Record<string, string> = {
+  Telefon: `<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .92h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>`,
+  Email: `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>`,
+  EatNtrack: `<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>`,
+};
+const iconPath = iconMap[label] ?? iconMap.EatNtrack;
+---
+
+<div class="contact-row">
+  <div class="cr-icon">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={iconPath} />
+  </div>
+  <div class="cr-text">
+    <span class="cr-label">{label}</span>
+    <span class="cr-value">{value}</span>
+  </div>
+  <div class="cr-actions">
+    {copyValue && (
+      <button class="copy-btn" data-copy={copyValue} aria-label={`Copiază ${label}`}>
+        <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span class="copy-label">Copiază</span>
+      </button>
+    )}
+    {openLabel && (
+      <a
+        href={href}
+        class="open-btn"
+        {...external ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+      >
+        {openLabel}
+      </a>
+    )}
+    {!copyValue && !openLabel && (
+      <a
+        href={href}
+        class="open-btn"
+        {...external ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+      >
+        Deschide →
+      </a>
+    )}
+  </div>
+</div>
+
+<style>
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    padding: 0.75rem 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.15s;
+  }
+  .contact-row:hover { border-color: var(--accent); }
+  .cr-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-50);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .cr-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    flex: 1;
+  }
+  .cr-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+  .cr-value {
+    font-size: 0.925rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .cr-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+  }
+  .copy-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.35rem 0.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.15s;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-50); }
+  .copy-btn.done { border-color: #22c55e; color: #22c55e; background: #f0fdf4; }
+  .copy-btn .icon-copy { display: block; }
+  .copy-btn .icon-check { display: none; }
+  .copy-btn.done .icon-copy { display: none; }
+  .copy-btn.done .icon-check { display: block; }
+  .open-btn {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .open-btn:hover { color: var(--accent); border-color: var(--accent); }
+</style>

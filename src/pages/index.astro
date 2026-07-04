@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import StepCard from '../components/StepCard.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
@@ -87,46 +88,24 @@ const latestPosts = allPosts
       <p class="section-sub">Nu există o rețetă universală. Fiecare etapă e adaptată la tine.</p>
     </div>
     <div class="steps-grid">
-
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <h3>Analiză împreună</h3>
-          <p>Evaluăm aportul caloric, macronutrienții și pattern-urile zilnice — ca să avem <strong>claritate reală</strong> de unde pornim. După, adresăm și micronutrienții și fibrele.</p>
-          <div class="step-tags">
-            <span>Claritate</span>
-            <span>Macronutrienți</span>
-            <span>Obiceiuri zilnice</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <h3>Ajustări &amp; educație</h3>
-          <p>Optimizăm cantități, combinații și obiceiuri — fără restricții extreme. Înveți "de ce"-ul din spatele alegerilor, ca să poți replica singur pe termen lung.</p>
-          <div class="step-tags">
-            <span>Pași concreți</span>
-            <span>Educație</span>
-            <span>Fără interdicții</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <h3>Monitorizare &amp; raport</h3>
-          <p>Urmărim progresul constant și ajustăm în funcție de rezultate reale — nu de cifre pe cântar, ci de cum te simți și funcționezi.</p>
-          <div class="step-tags">
-            <span>Monitorizare</span>
-            <span>Rezultate sustenabile</span>
-            <span>Ajustări continue</span>
-          </div>
-        </div>
-      </div>
-
+      <StepCard
+        num={1}
+        title="Analiză împreună"
+        description='Evaluăm aportul caloric, macronutrienții și pattern-urile zilnice — ca să avem <strong>claritate reală</strong> de unde pornim. După, adresăm și micronutrienții și fibrele.'
+        tags={['Claritate', 'Macronutrienți', 'Obiceiuri zilnice']}
+      />
+      <StepCard
+        num={2}
+        title="Ajustări & educație"
+        description='Optimizăm cantități, combinații și obiceiuri — fără restricții extreme. Înveți "de ce"-ul din spatele alegerilor, ca să poți replica singur pe termen lung.'
+        tags={['Pași concreți', 'Educație', 'Fără interdicții']}
+      />
+      <StepCard
+        num={3}
+        title="Monitorizare & raport"
+        description='Urmărim progresul constant și ajustăm în funcție de rezultate reale — nu de cifre pe cântar, ci de cum te simți și funcționezi.'
+        tags={['Monitorizare', 'Rezultate sustenabile', 'Ajustări continue']}
+      />
     </div>
   </section>
 
@@ -464,63 +443,6 @@ const latestPosts = allPosts
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
   }
-  .step-card {
-    display: flex;
-    gap: 1.25rem;
-    background: var(--surface);
-    border-radius: var(--r-md);
-    padding: 1.75rem;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .step-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--accent-100);
-  }
-  .step-num {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
-    font-weight: 800;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0.1rem;
-  }
-  .step-body h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
-  }
-  .step-body p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.65;
-    margin-bottom: 1rem;
-  }
-  .step-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-  }
-  .step-tags span {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--accent);
-    background: var(--accent-50);
-    border: 1px solid var(--accent-100);
-    padding: 0.2rem 0.55rem;
-    border-radius: 99px;
-  }
-
   /* ─── APPROACH STRIP ─── */
   .approach-strip {
     background: linear-gradient(135deg, var(--ink-950) 0%, var(--ink-800) 100%);

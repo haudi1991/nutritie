@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PackageCard from '../components/PackageCard.astro';
 ---
 
 <Layout title="Consultații — Puie Radu, Tehnician Nutriționist" description="Servicii de nutriție personalizate — consultație inițială gratuită, planuri alimentare și monitorizare continuă." padded>
@@ -14,56 +15,38 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Pachete -->
     <div class="packages">
-
-      <div class="package package--featured">
-        <div class="pkg-badge">Recomandat</div>
-        <div class="pkg-icon">🌱</div>
-        <h2>Consultație inițială</h2>
-        <p class="pkg-tagline">Gratuit · 30 min · Online</p>
-        <p class="pkg-desc">Discutăm despre obiectivele tale, obiceiurile actuale și cum putem colabora. Fără obligații, fără presiune.</p>
-        <ul class="pkg-list">
-          <li>Evaluare obiceiuri alimentare</li>
-          <li>Stabilire obiective realiste</li>
-          <li>Plan de acțiune inițial</li>
-        </ul>
-        <a href="https://calendly.com/radupuie/30min" target="_blank" rel="noopener noreferrer" class="pkg-cta pkg-cta--primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Programează gratuit
-        </a>
-      </div>
-
-      <div class="package">
-        <div class="pkg-icon">📋</div>
-        <h2>Plan alimentar personalizat</h2>
-        <p class="pkg-tagline">Sesiune + plan detaliat</p>
-        <p class="pkg-desc">Analizăm împreună aportul caloric, macronutrienții și obiceiurile zilnice. Primești un plan adaptat la tine — nu un template generic.</p>
-        <ul class="pkg-list">
-          <li>Analiză macronutrienți & calorii</li>
-          <li>Plan alimentar săptămânal</li>
-          <li>Recomandări de obiceiuri</li>
-          <li>Sesiune de follow-up inclusă</li>
-        </ul>
-        <a href="https://wa.me/40724212779" target="_blank" rel="noopener noreferrer" class="pkg-cta pkg-cta--secondary">
-          Detalii pe WhatsApp
-        </a>
-      </div>
-
-      <div class="package">
-        <div class="pkg-icon">📈</div>
-        <h2>Monitorizare continuă</h2>
-        <p class="pkg-tagline">Lunar · Ajustări constante</p>
-        <p class="pkg-desc">Urmărim progresul împreună și ajustăm planul în funcție de ce funcționează pentru tine. Educație nutrițională inclusă la fiecare sesiune.</p>
-        <ul class="pkg-list">
-          <li>Check-in săptămânal</li>
-          <li>Ajustări plan alimentar</li>
-          <li>Educație nutrițională continuă</li>
-          <li>Suport între sesiuni</li>
-        </ul>
-        <a href="https://wa.me/40724212779" target="_blank" rel="noopener noreferrer" class="pkg-cta pkg-cta--secondary">
-          Detalii pe WhatsApp
-        </a>
-      </div>
-
+      <PackageCard
+        icon="🌱"
+        title="Consultație inițială"
+        tagline="Gratuit · 30 min · Online"
+        description="Discutăm despre obiectivele tale, obiceiurile actuale și cum putem colabora. Fără obligații, fără presiune."
+        items={['Evaluare obiceiuri alimentare', 'Stabilire obiective realiste', 'Plan de acțiune inițial']}
+        ctaLabel="Programează gratuit"
+        ctaHref="https://calendly.com/radupuie/30min"
+        ctaExternal
+        featured
+        featuredLabel="Recomandat"
+      />
+      <PackageCard
+        icon="📋"
+        title="Plan alimentar personalizat"
+        tagline="Sesiune + plan detaliat"
+        description="Analizăm împreună aportul caloric, macronutrienții și obiceiurile zilnice. Primești un plan adaptat la tine — nu un template generic."
+        items={['Analiză macronutrienți & calorii', 'Plan alimentar săptămânal', 'Recomandări de obiceiuri', 'Sesiune de follow-up inclusă']}
+        ctaLabel="Detalii pe WhatsApp"
+        ctaHref="https://wa.me/40724212779"
+        ctaExternal
+      />
+      <PackageCard
+        icon="📈"
+        title="Monitorizare continuă"
+        tagline="Lunar · Ajustări constante"
+        description="Urmărim progresul împreună și ajustăm planul în funcție de ce funcționează pentru tine. Educație nutrițională inclusă la fiecare sesiune."
+        items={['Check-in săptămânal', 'Ajustări plan alimentar', 'Educație nutrițională continuă', 'Suport între sesiuni']}
+        ctaLabel="Detalii pe WhatsApp"
+        ctaHref="https://wa.me/40724212779"
+        ctaExternal
+      />
     </div>
 
     <!-- Note / Coming soon -->
@@ -126,110 +109,6 @@ import Layout from '../layouts/Layout.astro';
       .packages {
         grid-template-columns: repeat(3, 1fr);
       }
-    }
-
-    .package {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--r-md);
-      padding: 1.75rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      position: relative;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .package:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-    .package--featured {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent), var(--shadow-sm);
-    }
-    .pkg-badge {
-      position: absolute;
-      top: -11px;
-      left: 1.25rem;
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.65rem;
-      border-radius: 99px;
-    }
-    .pkg-icon {
-      font-size: 1.75rem;
-      line-height: 1;
-    }
-    .package h2 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      margin: 0;
-    }
-    .pkg-tagline {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin: 0;
-    }
-    .pkg-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin: 0;
-    }
-    .pkg-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      flex: 1;
-    }
-    .pkg-list li {
-      font-size: 0.85rem;
-      color: var(--text);
-      padding-left: 1.25rem;
-      position: relative;
-    }
-    .pkg-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
-    }
-    .pkg-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.65rem 1rem;
-      border-radius: var(--r-sm);
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.15s;
-      margin-top: auto;
-    }
-    .pkg-cta--primary {
-      background: var(--accent);
-      color: #fff;
-    }
-    .pkg-cta--primary:hover { background: var(--accent-mid); }
-    .pkg-cta--secondary {
-      background: var(--bg);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .pkg-cta--secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
     }
 
     /* Info note */
