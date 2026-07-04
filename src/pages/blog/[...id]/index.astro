@@ -15,46 +15,220 @@ const { Content } = await render(post);
 ---
 
 <Layout title={`${post.data.title} — Puie Radu`} description={post.data.description} padded>
-  <article>
-    <a href="/blog" class="back-link">← Înapoi la blog</a>
-    <h1>{post.data.title}</h1>
-    <p class="meta">
-      {post.data.pubDate.toLocaleDateString('ro-RO', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })}
+  <article class="post">
+
+    <a href="/blog" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Înapoi la blog
+    </a>
+
+    <header class="post-header">
       {post.data.tags.length > 0 && (
-        <span class="tags"> · {post.data.tags.join(', ')}</span>
+        <div class="post-tags">
+          {post.data.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+        </div>
       )}
-    </p>
+      <h1>{post.data.title}</h1>
+      <p class="post-meta">
+        {post.data.pubDate.toLocaleDateString('ro-RO', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+      </p>
+    </header>
+
     <div class="content">
       <Content />
     </div>
+
   </article>
 
   <style>
+    .post {
+      max-width: 680px;
+    }
+
     .back-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    article h1 {
-      margin-top: 1rem;
-    }
-    .meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
       color: var(--text-muted);
-      font-size: 0.9rem;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.15s;
       margin-bottom: 2rem;
     }
+    .back-link:hover { color: var(--accent); }
+
+    /* Header */
+    .post-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      background: var(--accent-50);
+      border: 1px solid var(--accent-100);
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+    }
+    .post-header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.75rem;
+    }
+    .post-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Content */
     .content {
-      line-height: 1.8;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text);
     }
+
     .content :global(h2) {
-      margin-top: 2rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin: 2.5rem 0 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--accent-100);
     }
+
+    .content :global(h3) {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 1.75rem 0 0.5rem;
+    }
+
     .content :global(p) {
-      margin: 1rem 0;
+      margin: 0 0 1.2rem;
+      color: #374151;
+    }
+
+    .content :global(strong) {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .content :global(em) {
+      color: var(--text-muted);
+    }
+
+    .content :global(hr) {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    .content :global(ul),
+    .content :global(ol) {
+      padding-left: 1.25rem;
+      margin: 0 0 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .content :global(li) {
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    .content :global(ul li::marker) {
+      color: var(--accent);
+    }
+
+    .content :global(blockquote) {
+      border-left: 3px solid var(--accent);
+      margin: 1.5rem 0;
+      padding: 0.75rem 1.25rem;
+      background: var(--accent-50);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    }
+    .content :global(blockquote p) {
+      margin: 0;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    /* Table */
+    .content :global(table) {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+      border-radius: var(--r-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .content :global(thead) {
+      background: var(--ink-900);
+      color: #fff;
+    }
+    .content :global(th) {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .content :global(td) {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .content :global(tbody tr:last-child td) {
+      border-bottom: none;
+    }
+    .content :global(tbody tr:nth-child(even)) {
+      background: var(--accent-50);
+    }
+    .content :global(tbody tr:nth-child(even) td:first-child) {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* Inline code */
+    .content :global(code) {
+      background: var(--accent-50);
+      color: var(--accent);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.875em;
+    }
+
+    /* Links */
+    .content :global(a) {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .content :global(a:hover) {
+      color: var(--accent-mid);
     }
   </style>
 </Layout>
