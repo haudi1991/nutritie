@@ -22,17 +22,32 @@ import PackageCard from '../components/PackageCard.astro';
         <div class="how-card">
           <div class="how-icon">📱</div>
           <h3>Tracking în aplicație</h3>
-          <p>Lucrez exclusiv cu clienți care trackuiesc alimentele în aplicație gratuita, cu cantități <strong>cântărite</strong>. Fără date reale, nu pot face ajustări reale.</p>
+          <p>Lucrez exclusiv cu clienți care trackuiesc alimentele în aplicație, cu cantități <strong>cântărite</strong>. Fără date reale, nu pot face ajustări reale.</p>
+        </div>
+        <div class="how-card how-card--highlight">
+          <div class="how-icon">🍽️</div>
+          <h3>Tu alegi ce mănânci</h3>
+          <p>Nu vând programe alimentare fixe. Stabilim împreună <strong>macronutrienții customizați</strong> pentru tine, iar tu mănânci ce vrei în cadrul lor. Fără liste de alimente interzise, fără meniuri prestabilite.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-icon">🔍</div>
+          <h3>Recomandări din jurnalul tău</h3>
+          <p>Analizez ce ai mâncat efectiv și vin cu sugestii <strong>specifice pentru tine</strong> — nu sfaturi generice. Fiecare ajustare pleacă de la realitatea ta, nu de la un template.</p>
         </div>
         <div class="how-card">
           <div class="how-icon">⚖️</div>
           <h3>Cântăriri & măsurători</h3>
-          <p>Pe parcursul colaborării, urmărim progresul prin cântăriri periodice și/sau măsurători corporale — în funcție de obiectiv și context. Cântarul e un instrument, nu un judecător.</p>
+          <p>Urmărim progresul prin cântăriri periodice și/sau măsurători corporale — în funcție de obiectiv. Cântarul e un instrument, nu un judecător.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-icon">🎓</div>
+          <h3>Scopul final: autonomia ta</h3>
+          <p>Tot ce facem împreună are un singur obiectiv pe termen lung — să nu mai ai nevoie de mine. Înveți să îți gestionezi singur alimentația, cu înțelegere, nu cu reguli.</p>
         </div>
         <div class="how-card">
           <div class="how-icon">📊</div>
           <h3>Decizii bazate pe date</h3>
-          <p>Ajustările planului se fac pe baza a ce arată datele — nu pe baza impresiilor. Asta e diferența dintre a progresa și a te învârti în cerc.</p>
+          <p>Ajustările se fac pe baza a ce arată datele — nu pe baza impresiilor. Asta e diferența dintre a progresa și a te învârti în cerc.</p>
         </div>
       </div>
     </div>
@@ -146,6 +161,11 @@ import PackageCard from '../components/PackageCard.astro';
       border-color: var(--accent);
       background: var(--accent-50);
     }
+    .how-card--highlight {
+      border-color: var(--accent);
+      background: var(--accent-50);
+    }
+    .how-card--highlight p { color: var(--text); }
     .how-icon {
       font-size: 1.5rem;
       line-height: 1;
