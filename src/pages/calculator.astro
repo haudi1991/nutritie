@@ -72,6 +72,9 @@ import Layout from '../layouts/Layout.astro';
             <label class="goal-pill">
               <input type="radio" name="goal" value="bulk"> Masă musculară
             </label>
+            <label class="goal-pill">
+              <input type="radio" name="goal" value="recomp"> Remodelare
+            </label>
           </div>
         </div>
 
@@ -417,14 +420,14 @@ import Layout from '../layouts/Layout.astro';
       const delta = goal === 'cut' ? -400 : goal === 'bulk' ? 300 : 0;
       const kcal = Math.round(tdee + delta);
 
-      const goalLabels = { cut: 'Scădere în greutate', maint: 'Menținere', bulk: 'Creștere masă musculară' };
+      const goalLabels = { cut: 'Scădere în greutate', maint: 'Menținere', bulk: 'Creștere masă musculară', recomp: 'Remodelare corporală' };
 
-      // Macro în grame (distribuție fixă simplă)
-      // Proteine: 2g/kg greutate
-      // Grăsimi: 25% din calorii
-      // Carbo: restul
-      const pG = Math.round(weight * 2);
-      const fG = Math.round((kcal * 0.25) / 9);
+      // Macro în grame — g/kg corp, carbohidrați din rest
+      const protPerKg = { cut: 2.0, maint: 1.6, bulk: 1.6, recomp: 2.0 };
+      const fatPerKg  = { cut: 0.7, maint: 1.0, bulk: 1.0, recomp: 0.8 };
+
+      const pG = Math.round(weight * protPerKg[goal]);
+      const fG = Math.round(weight * fatPerKg[goal]);
       const cKcal = kcal - pG * 4 - fG * 9;
       const cG = Math.round(cKcal / 4);
 
